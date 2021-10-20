@@ -35,8 +35,8 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public int registerUser(String name, long phone, String email, String password) {
-        return jdbcTemplate.update("insert into app_user (user_name,phone_num,email,ENCRYTED_PASSWORD) values (?,?,?,?)", name,phone,email,password);
+    public int registerUser(String name, long phone, String email, String password,boolean admin) {
+        return jdbcTemplate.update("insert into app_user (user_name,phone_num,email,ENCRYTED_PASSWORD,admin) values (?,?,?,?,?)", name,phone,email,password,admin);
 
     }
     
