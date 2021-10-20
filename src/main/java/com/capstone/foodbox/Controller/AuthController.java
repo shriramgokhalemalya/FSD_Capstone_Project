@@ -46,7 +46,7 @@ public class AuthController {
         }
         else {
             String passHash = this.utils.encryptPassword(postObject.getString("password"));
-            int result = this.userDao.registerUser(postObject.getString("name"), postObject.getLong("phone"), postObject.getString("email"), passHash);
+            int result = this.userDao.registerUser(postObject.getString("name"), postObject.getLong("phone"), postObject.getString("email"),passHash,postObject.getBoolean("admin"));
             if(result == 1) {
             	response = utils.generateResponse(null, "null", "User successfully registered");
                 status = HttpStatus.OK;
@@ -74,7 +74,7 @@ public class AuthController {
             
                 
                 cachedResponse.put("jwttoken", utils.generateWebToken(users.get(0)));
-                cachedResponse.put("userid", users.get(0).getName());
+                cachedResponse.put("admin", users.get(0).getUserType());
                 response = utils.generateResponse(cachedResponse, "null", "success");
                 status = HttpStatus.OK;
             }
