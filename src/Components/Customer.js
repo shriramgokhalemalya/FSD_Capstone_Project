@@ -33,7 +33,7 @@ class Customer extends Component {
 
         }
         console.log(foodsearch);
-        axios.post('http://localhost:3004/foodSearch', foodsearch)
+        axios.post('http://localhost:3004/foodSearch', foodsearch,headers)
             .then(result => {
                 this.setState({ foodmenu: result.data })
                 //console.log(result.data.response);
@@ -62,7 +62,7 @@ class Customer extends Component {
                     <input type="text" 
                     className="form-control" 
                     name="fooditem" 
-                    placeholder="Enter Name Here"
+                    placeholder="Search your favourite item"
                     onChange={this.handleChange} />
                 </div>
                 <br/>

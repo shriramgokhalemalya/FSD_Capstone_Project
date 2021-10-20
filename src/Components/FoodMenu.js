@@ -1,5 +1,3 @@
-
-// Incase Selective Component while checking on condition
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import { isAuthenticated } from "../repository";

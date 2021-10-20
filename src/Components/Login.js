@@ -9,7 +9,8 @@ export default class Login extends Component {
             username: null,
             password: null,
             login:false,
-            store:null
+            store:null,
+            admin:false
         }
     }
 
@@ -33,6 +34,7 @@ export default class Login extends Component {
             .then(result => {
                 console.log(result);
                 console.log('Login Successful..!!');
+                this.setState({ admin: result.data.admin })
                 /*
                 localStorage.setItem('login', JSON.stringify({
                     login:true,
@@ -40,6 +42,7 @@ export default class Login extends Component {
                 }));
                 */
                 localStorage.setItem('username', this.state.username);
+                localStorage.setItem('admin', result.data.admin);
                 {/*this.setState({login:true})*/}
                 this.props.history.push('/customer');
             })

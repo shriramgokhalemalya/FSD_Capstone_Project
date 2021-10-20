@@ -8,6 +8,9 @@ import FoodMenu from "./Components/FoodMenu";
 import Checkout from "./Components/Checkout";
 import Payment from "./Components/Payment";
 import OrderSummary from "./Components/OrderSummary";
+import Admin from "./Components/Admin";
+import FoodMenuEdit from "./Components/FoodMenuEdit";
+import FoodMenuAdd from "./Components/FoodMenuAdd";
 
 export default class App extends Component {
 
@@ -37,7 +40,11 @@ export default class App extends Component {
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
                   {auth ?
-                    <Link to={'/customer'} className="nav-link">Order History</Link> : null}
+                    <Link to={'/admin'} className="nav-link">Admin</Link> : null}
+                </li>
+                <li className="nav-item">
+                  {auth ?
+                    <Link to={'/customer'} className="nav-link">Food Search</Link> : null}
                 </li>
                 <li>
                   {auth ?
@@ -58,6 +65,9 @@ export default class App extends Component {
             <Route path='/checkout' component={Checkout} />
             <Route path='/payment' component={Payment} />
             <Route path='/ordersummary' component={OrderSummary} />
+            <Route path='/admin' component={Admin} />
+            <Route path='/foodmenuedit/:restaurantName' component={FoodMenuEdit}/>
+            <Route path='/foodmenuadd' component={FoodMenuAdd}/>
 
           </div>
         </Router>
