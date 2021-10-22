@@ -18,5 +18,7 @@ public interface FoodDAO {
 	
 	public void deleteMenu(String resName);
 	
+	//update
+	
 
 }
